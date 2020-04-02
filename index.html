@@ -1,108 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title Page</title>
 
-        <!-- Bootstrap CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title Page</title>
 
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
-        
-        <!-- <script type = "text/javascript" src="back.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
 
-        <script>
-            // // Your web app's Firebase configuration
-            // var firebaseConfig = {
-            //     apiKey: "AIzaSyBeLHHeeBJlQmJ4AMVDgH7V2FO6Jcy5_wU",
-            //     authDomain: "shortenurl-31f1b.firebaseapp.com",
-            //     databaseURL: "https://shortenurl-31f1b.firebaseio.com",
-            //     projectId: "shortenurl-31f1b",
-            //     storageBucket: "shortenurl-31f1b.appspot.com",
-            //     messagingSenderId: "760060658951",
-            //     appId: "1:760060658951:web:55a25fe037712a641d31a2",
-            //     measurementId: "G-7ZDV01KCJB"
-            // };
-            // // Initialize Firebase
-            // firebase.initializeApp(firebaseConfig);
-            // firebase.analytics();
-            // var db = firebase.firestore();
-            
-            // //Generated_URL
-            // function Generated_URL(){
-            //     if(validURL(document.getElementById('L_URL').value)){
-            //         //console.log("This is a URL")
-            //         targetURL = document.getElementById('L_URL').value;
-            //         var result           = '';
-            //         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            //         var charactersLength = characters.length;
-            //         for ( var i = 0; i < 12; i++ ) {
-            //             result += characters.charAt(Math.floor(Math.random() * charactersLength));
-            //         }
-            //         //console.log("Storing a Short_URL") 
-            //         db.collection("๊URL").add({
-            //             Long_URL: document.getElementById('L_URL').value,
-            //             Short_URL: result,
-            //         })
-            //     }
-            //     else{
-            //         console.log("This isn't a URL")
-            //     }
-            // }
-            
-            // //Check URL
-            // function validURL(str) {
-            //     var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-            //         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-            //         '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-            //         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-            //         '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-            //         '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-            //     console.log(!!pattern.test(str));
-            //     return !!pattern.test(str);
-            // }
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="styles.css">
 
-            //add data
-            
-            // .then(function(docRef) {
-            //     console.log("Document written with ID: ", docRef.id);
-            // })
-            // .catch(function(error) {
-            //     console.error("Error adding document: ", error);
-            // });
-            
-        </script>
+</head>
 
-    </head>
-
-    <body>
-        <h1 class="text-center">Hello World</h1>
-        <div>
-            <p>Your URL -><p>
+<body>
+  <!-- <div class="container">
+            <h2>SHORTEN URL</h2>
             <form method="POST" action="gen">
-                <label for="URL">URL:</label>
-                <input type="text" id="URL" name="URL"><br><br>
-                <button type="submit">Generate</button>
-                
-                <br>
-                <template>
-                </template>   
+              <div class="form-group">
+                <label for="URL">Your URL:</label>
+                <input type="text" class="form-control" id="URL" placeholder="Enter your URL" name="URL">
+              </div>
+              <template>
+                <div class="form-group">
+                 <label for="pwd">Password:</label>
+                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                </div>
+              </template>
+              <button type="submit" class="btn btn-primary">Generate</button>
             </form>
-        </div>
+        </div> -->
+  <h1 class="text-center">Hello World</h1>
 
+  <div id='app'>
+    <p>Your URL -><p>
+        <form method="POST" action="gen">
+          <label for="URL">URL:</label>
+          <input type="text" id="URL" name="URL"><br><br>
+          <button type="submit">Generate</button>
+          <label v-model='URL'>URL:{{URL}}</label>
+          <br>
+          <template>
+          </template>
+        </form>
+  </div>
+  <script>
+    var VueOnj = new Vue({
+      el: '#app',
+      data: {
+        URL: "HELLO"
+      }
+    })
+  </script>
 
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </body>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
 </html>
