@@ -42,20 +42,25 @@
         <form method="POST" action="gen">
           <label for="URL">URL:</label>
           <input type="text" id="URL" name="URL"><br><br>
-          <button type="submit">Generate</button>
-          <label v-model='URL'>URL:{{URL}}</label>
+          <button type="submit" onclick="getdata()">Generate</button>
+          <p id="response"></p>
           <br>
           <template>
           </template>
         </form>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    var VueOnj = new Vue({
-      el: '#app',
-      data: {
-        URL: "HELLO"
-      }
-    })
+    const getdata=()=>{
+        axios.post('http://localhost:3000/gen')
+        .then(result=>{
+            console.log(result.data.message)
+            document.getElementById("response").innerHTML=result.data.message
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
   </script>
 
   <!-- jQuery -->

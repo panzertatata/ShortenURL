@@ -51,6 +51,7 @@ app.post('/gen',function(req,res){
     }
     else{
         console.log("This isn't a URL")
+        res.json({message:"Please enter URL"})
     }
 })
 
