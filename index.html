@@ -39,22 +39,18 @@
 
   <div id='app'>
     <p>Your URL -><p>
-        <form method="POST" action="gen">
           <label for="URL">URL:</label>
           <input type="text" id="URL" name="URL"><br><br>
-          <button type="submit" onclick="getdata()">Generate</button>
+          <button onclick="getdata()">Generate</button>
+          <label>Shorten URL:</label>
           <p id="response"></p>
-          <br>
-          <template>
-          </template>
-        </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     const getdata=()=>{
-        axios.post('http://localhost:3000/gen')
+        axios.post('/gen',{URL: document.getElementById('URL').value})
         .then(result=>{
-            console.log(result.data.message)
+            //console.log(result.data.message)
             document.getElementById("response").innerHTML=result.data.message
         })
         .catch(err=>{

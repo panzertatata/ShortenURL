@@ -4,6 +4,7 @@ var body = require('body-parser')
 app.use(body())
 
 const url = "mongodb://localhost:27017/"
+const website = "localhost:3000/goto/"
 
 //Check URL
 function validURL(str) {
@@ -47,7 +48,8 @@ app.post('/gen',function(req,res){
                 console.log('insert ' + res.insertedCount + ' item(s)')
                 db.close()
             })
-        })   
+        })
+        res.json({message:website+result})   
     }
     else{
         console.log("This isn't a URL")
