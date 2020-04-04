@@ -9,52 +9,40 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
-  <!-- <div class="container">
-            <h2>SHORTEN URL</h2>
-            <form method="POST" action="gen">
-              <div class="form-group">
-                <label for="URL">Your URL:</label>
-                <input type="text" class="form-control" id="URL" placeholder="Enter your URL" name="URL">
-              </div>
-              <template>
-                <div class="form-group">
-                 <label for="pwd">Password:</label>
-                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-                </div>
-              </template>
-              <button type="submit" class="btn btn-primary">Generate</button>
-            </form>
-        </div> -->
-  <h1 class="text-center">Hello World</h1>
 
-  <div id='app'>
-    <p>Your URL -><p>
-          <label for="URL">URL:</label>
-          <input type="text" id="URL" name="URL"><br><br>
-          <button onclick="getdata()">Generate</button>
-          <label>Shorten URL:</label>
-          <p id="response"></p>
+  <div class="container">
+    <div class="card border-info mx-auto mt-5" style="max-width: 18rem;">
+      <div class="card-header">SHORTEN URL</div>
+      <div class="card-body text-info">
+        <h5 class="card-title">Your URL:</h5>
+        <input type="text" id="URL" name="URL"><br>
+        <button type="button" class="btn btn-primary mt-3" onclick="getdata()">Generate</button>
+        <a class="mt-5" href="./admin">Admin</a>
+        <p id="response"></p>
+      </div>
+    </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    const getdata=()=>{
-        axios.post('/gen',{URL: document.getElementById('URL').value})
-        .then(result=>{
-            //console.log(result.data.message)
-            document.getElementById("response").innerHTML=result.data.message
+    const getdata = () => {
+      axios.post('/gen', {
+          URL: document.getElementById('URL').value
         })
-        .catch(err=>{
-            console.log(err)
+        .then(result => {
+          //console.log(result.data.message)
+          document.getElementById("response").innerHTML = result.data.message
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   </script>
@@ -62,6 +50,15 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
